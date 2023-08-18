@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://naitang21.io
 date_format: "ordinal"
 title: naitang21
 subtitle: "山木呀"
 description: "山中木"
-keywords: 山木, naitang21, shanmu, 闷骚的程序员
+keywords: 山木, naitang21, shanmu
 timezone: Asia/Shanghai
 encoding: "utf-8"
 # 页面左下角显示的年份
@@ -57,12 +57,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: Shan mu
 organization: 
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: Naitang21
+location: Guangdong, China
+email: s2291670@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -144,7 +144,7 @@ collections:
 comments_provider: giscus
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
-# disqus 配置参考：https://disqus.com
+# disqus 配置参考：https://disqus.com 博客评论平台
 disqus:
     username: 
 # gitment 配置参考：https://imsun.net/posts/gitment-introduction/
