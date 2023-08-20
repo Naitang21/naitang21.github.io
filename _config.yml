@@ -172,7 +172,6 @@ giscus:
     repo-id: R_kgDOKIr4yw
     category: General
     category-id: DIC_kwDOKIr4y84CYuty
-	
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
