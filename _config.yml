@@ -168,23 +168,11 @@ comments_provider: giscus
     # repo: mzlogin/blog-comments
 # giscus 配置参考：https://giscus.app/zh-CN
 giscus:
-    # repo: mzlogin/blog-comments
-    # repo-id: MDEwOlJlcG9zaXRvcnk5MzEyNzkxNw==
-    # category: Announcements
-    # category-id: DIC_kwDOBY0E7c4CRtg9
-	data-repo="Naitang21/naitang21.github.io"
-	data-repo-id="R_kgDOKIr4yw"
-	data-category="General"
-	data-category-id="DIC_kwDOKIr4y84CYuty"
-	data-mapping="pathname"
-	data-strict="0"
-	data-reactions-enabled="1"
-	data-emit-metadata="0"
-	data-input-position="top"
-	data-theme="light"
-	data-lang="zh-CN"
-	data-loading="lazy"
-	crossorigin="anonymous"
+    repo: Naitang21/naitang21.github.io
+    repo-id: R_kgDOKIr4yw
+    category: General
+    category-id: DIC_kwDOKIr4y84CYuty
+	
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
