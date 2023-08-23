@@ -1,0 +1,56 @@
+---
+layout: post
+title: 有效的括号
+categories: leetcode
+description: 有效的括号--力扣题解
+keywords: leetcode
+typora-root-url: ..
+---
+
+﻿**题目**
+给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+
+有效字符串需满足：
+
+- 左括号必须用相同类型的右括号闭合。
+- 左括号必须以正确的顺序闭合。
+
+![img](/images/posts/valid-bracket/385680d49dba467d8b0de0527bee9078.png)
+**方法一，利用栈**
+遍历字符串的每一个字符，如果是左括号，则进栈，如果是右括号，则与栈顶元素比较，看是否匹配，并且栈顶元素出栈
+
+```java
+public boolean isValid(String s) {
+        Stack<Character> stack = new Stack();
+        char[] ss = s.toCharArray();
+        for (int i=0;i<ss.length;i++){
+            if (ss[i]=='(' || ss[i]=='{' || ss[i]=='['){
+                stack.push(ss[i]);
+            }else if (ss[i]==')' || ss[i]=='}' || ss[i]==']'){
+//                c是栈顶元素
+                if (stack.empty())
+                    return false;
+                else {
+                    char c = stack.pop();
+                    switch (c){
+                        case '(':
+                            if (ss[i]!=')')
+                                return false;
+                            break;
+                        case '{':
+                            if (ss[i]!='}')
+                                return false;
+                            break;
+                        case '[':
+                            if (ss[i]!=']')
+                                return false;
+                            break;
+                    }
+                }
+            }
+        }
+      if (stack.empty())
+          return true;
+      else return false;
+    }
+```

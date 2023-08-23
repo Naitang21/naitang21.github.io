@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Vue学习笔记
-categories: Frontend, Vue
+categories: Vue
 description: Vue学习笔记
 keywords: Vue
+typora-root-url: ..
 ---
 
 # Vue
 
-假装有内容
