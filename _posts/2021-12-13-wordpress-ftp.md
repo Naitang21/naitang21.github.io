@@ -1,9 +1,9 @@
 ---
 layout: post
 title: wordpress更新下载插件需要ftp 
-categories: wordpress
+categories: Wordpress
 description: wordpress更新下载插件需要ftp 
-keywords: wordpress
+keywords: Wordpress
 typora-root-url: ..
 ---
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 安装了TensorFlow，却报但是No module named ‘tensorflow‘
-categories: bug
-description: bug
-keywords: No module named ‘tensorflow‘
+categories: Bug
+description: No module named ‘tensorflow‘
+keywords: Bug
 typora-root-url: ..
 
 ---

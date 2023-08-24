@@ -1,9 +1,9 @@
 ---
 layout: post
 title: int object has no attribute 'value'
-categories: python bug
-description: python bug
-keywords: python
+categories: Python Bug
+description: Python Bug
+keywords: Python
 typora-root-url: ..
 ---
 

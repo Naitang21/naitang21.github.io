@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 解决org.springframework.jdbc.support.SQLErrorCodesFactory错误
-categories: bug
-description: bug
-keywords: bug
+categories: Bug
+description: Bug
+keywords: Bug
 typora-root-url: .. 
 ---
 

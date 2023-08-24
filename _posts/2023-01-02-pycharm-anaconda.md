@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 在pycharm中使用anaconda环境
-categories: python
+categories: Python
 description: 在pycharm中使用anaconda环境--力扣题解
-keywords: python
+keywords: Python
 typora-root-url: ..
 ---
 
