@@ -1,27 +1,262 @@
 ---
 layout: post
-title: template page
-categories: [cate1, cate2]
-description: some word here
-keywords: keyword1, keyword2
+title: Spring Boot学习笔记
+categories: SpringBoot
+description: Spring Boot学习笔记
+keywords: SpringBoot
 typora-root-url: ..
-mermaid: false
-sequence: false
-flow: false
-mathjax: false
-mindmap: false
-mindmap2: false
 ---
 
 ## 创建Spring Boot项目
 
 [Spring Initializr](https://start.spring.io/)
 
+使用IDEA专业版可以直接创建SpringBoot项目
+
+### **在pom文件中加入springboot依赖**
+
+```
+<parent>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-parent</artifactId>
+<version>2.0.1.RELEASE</version>
+</parent>
+<dependencies>
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+</dependencies>
+```
+
+### **创建controller类**
+
+要加上`@RestController`和`@SpringBootApplication`注解
+
+Spring Boot 提供了默认的配置，在启动类里加入 `@SpringBootApplication` 注解，则这个类就是整个应用程序的启动类
+
+**Spring Boot 整个应用程序只有一个配置文件**： `.properties` 或 `.yml` 文件。Spring Boot 对每个配置项都有默认值，我们可以通过**添加配置文件**来覆盖配置项的默认值。
+
+**注意：**yaml 使用**换行+ tab** 隔开，这里需要注意的是**冒号后面必须空格**，否则会报错
+
+### **打包，运行**
+
+springboot有2种打包格式：**jar**和**war**
+
+#### **war**方式
+
+在pom文件中加入依赖
+
+```
+<packaging>war</packaging>
+<build>
+<finalName>index</finalName>
+<resources>
+<resource>
+<directory>src/main/resources</directory>
+<filtering>true</filtering>
+</resource>
+</resources>
+<plugins>
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+<plugin>
+<artifactId>maven-resources-plugin</artifactId>
+<version>2.5</version>
+<configuration>
+<encoding>UTF-8</encoding>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.18.1</version>
+<configuration>
+<skipTests>true</skipTests>
+</configuration>
+</plugin>
+</plugins>
+</build>
+```
+
+运行 mvn package 就会生成 war 包
+
+修改启动类，继承SpringBootServletInitializer类，重写configure方法
+
+```
+@RestController
+@SpringBootApplication
+public class HelloController extends SpringBootServletInitializer{
+ 
+@RequestMapping("hello")
+String hello() {
+return "Hello World!";
+}
+ 
+public static void main(String[] args) {
+SpringApplication.run(HelloController.class, args);
+}
+@Override
+protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+return application.sources(Application.class);
+}
+ 
+}
+```
+
+#### jar方式
+
+在pom中加入依赖
+
+```
+<packaging>jar</packaging>
+<build>
+<finalName>api</finalName>
+<resources>
+<resource>
+<directory>src/main/resources</directory>
+<filtering>true</filtering>
+</resource>
+</resources>
+<plugins>
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+<configuration>
+<fork>true</fork>
+<mainClass>com.lynn.yiyi.Application</mainClass>
+</configuration>
+<executions>
+<execution>
+<goals>
+<goal>repackage</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+<plugin>
+<artifactId>maven-resources-plugin</artifactId>
+<version>2.5</version>
+<configuration>
+<encoding>UTF-8</encoding>
+<useDefaultDelimiters>true</useDefaultDelimiters>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.18.1</version>
+<configuration>
+<skipTests>true</skipTests>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>2.3.2</version>
+<configuration>
+<source>1.8</source>
+<target>1.8</target>
+</configuration>
+</plugin>
+</plugins>
+</build>
+```
+
+通过 `mvn package` 打包，通过`java -jar api.jar`启动
+
+## springboot项目结构
+
+![image-20230906224055602](/images/posts/Springboot/image-20230906224055602.png)
+
+
+
+Application.java 是程序的启动类
+
+Startup.java 是程序启动完成前执行的类
+
+WebConfig.java 是配置类，所有 bean 注入、配置、拦截器注入等都放在这个类里面。
+
+### yaml/properties 文件常用配置项
+
+- **-server.port**	应用程序启动端口	server.port=8080，定义应用程序启动端口为8080
+- **server.context-path**	应用程序上下文	server.port=/api,则访问地址为：`http://ip:port/api`
+- **spring.http.multipart.maxFileSize**	最大文件上传大小,-1为不限制	spring.http.multipart.maxFileSize=-1
+- **spring.jpa.database**	数据库类型	spring.jpa.database=MYSQL，指定数据库为mysql
+- **spring.jpa.properties.hibernate.dialect**	hql方言	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+- **spring.datasource.url**	数据库连接字符串	spring.datasource.url=jdbc:mysql://localhost:3306/database?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+- **spring.datasource.username**	数据库用户名	spring.datasource.username=root
+- **spring.datasource.password**	数据库密码	spring.datasource.password=root
+- **spring.datasource.driverClassName**	数据库驱动	spring.datasource.driverClassName=com.mysql.jdbc.Driver
+- **spring.jpa.showSql**	控制台是否打印sql语句	spring.jpa.showSql=true
+
+### 多环境配置
+
+1. 创建 application.yml 文件，添加以下内容，指定当前项目的默认环境为 dev
+
+```
+spring:
+  profiles:
+    active: dev
+```
+
+2. 文件名的格式为：application-{profile}.yml，其中，{profile} 替换为环境名字，在其中添加当前环境的配置信息
+
 ## 注意事项
 
 - service层不能调用本层的方法
 
 ## 注解
+
+### @SpringBootApplication
+
+指定启动类
+
+可以使用以下3个注解来代替@SpringBootApplication
+
+```
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+
+SpringBootConfiguration 表示 Spring Boot 的配置注解
+EnableAutoConfiguration 表示自动配置
+ComponentScan 表示 Spring Boot 扫描 Bean 的规则，比如扫描哪些包
+```
+
+### @Configuration
+
+指定配置类，比如解决跨域问题时的配置类就要加上这个注解
+
+不过 Spring Boot 官方推荐 Spring Boot 项目用 SpringBootConfiguration 来代替 Configuration。
+
+### @Bean
+
+**方法级别**上的注解，主要添加在 `@Configuration` 或 `@SpringBootConfiguration` 注解的类，有时也可以添加在 `@Component` 注解的类。它的作用是定义一个Bean。
+
+#### @Bean和@Component的区别
+
+| @Bean                                                      | @Component |
+| ---------------------------------------------------------- | ---------- |
+| 方法级别                                                   | 函数级别   |
+| 告诉了 `Spring` 这是某个类的实例，当我们需要用它的时候给我 |            |
+
+### @Value
+
+可以用来定义全局变量。server.port 就是我们在 application.yml 里面定义的属性，我们可以自定义任意属性名，通过 `@Value` 注解就可以将其取出来。
+
+```
+    @Value("${server.port}")
+    String port;
+    @RequestMapping("/hello")
+    public String home(String name) {
+        return "hi "+name+",i am from port:" +port;
+    }
+```
+
+
 
 ### @RestController 
 
