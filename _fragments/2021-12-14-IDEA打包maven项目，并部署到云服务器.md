@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: IDEA打包maven项目，并部署到云服务器
-tags: IDEA
+tags: Tool
 description: IDEA打包maven项目，并部署到云服务器
 keywords: IDEA Maven
 typora-root-url: ..
@@ -20,3 +20,6 @@ typora-root-url: ..
 比如，项目war包名为：a.var
 云服务器的ip地址为：111.222.333.444
 则访问项目的路径为：111.222.333.444：端口/a/
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDAxNzE3NzA3XX0=
+-->
