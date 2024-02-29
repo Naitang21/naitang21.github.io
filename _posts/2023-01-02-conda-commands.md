@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: fragment
 title: conda常用命令
-categories: Python 
+tags: Python 
 description: conda常用命令
 keywords: Python Conda
 typora-root-url: ..
@@ -77,3 +77,6 @@ conda config --set show_channel_urls yes
 ```
 conda config --remove-key channels
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTkxOTc5NzMzMl19
+-->
