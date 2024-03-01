@@ -20,8 +20,8 @@ System.out.println(new File(".").getAbsolutePath());
 ```
 
 如果不正确，可能确实配置`work directory`
-
+`Edit Configuration`   ->  添加 `Working directory`为当前service的路径
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDMzOTk1OTRdfQ==
+eyJoaXN0b3J5IjpbNjE3NzQ2MzI2XX0=
 -->
