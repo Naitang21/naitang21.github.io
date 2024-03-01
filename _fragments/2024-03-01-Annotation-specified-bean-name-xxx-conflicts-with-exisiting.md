@@ -11,6 +11,9 @@ typora-root-url: ..
 ```
 Failed to parse configuration class [xxx]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'xxx' for bean class [xxx] conflicts with existing, non-compatible bean definition of same name and class [xxx]
 ```
+
+根据错误信息可以知道，是因为有两个相同的Bean冲突了，程序不知道该使用哪一个Bean。根据错误信息可以找到冲突的两个Bean的位置。
+但是我在jia
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5Nzk5MjgwMl19
+eyJoaXN0b3J5IjpbLTEyMjM3MDYyNDBdfQ==
 -->
