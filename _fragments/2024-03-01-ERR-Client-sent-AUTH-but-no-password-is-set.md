@@ -2,7 +2,7 @@
 layout: fragment
 title: Redis连接报错：ERR Client sent AUTH, but no password is set
 tags: Redis
-description: ## Redis连接报错：ERR Client sent AUTH, but no password is set
+description: Redis连接报错：ERR Client sent AUTH, but no password is set
 keywords: Redis
 typora-root-url: ..
 ---
@@ -23,5 +23,5 @@ config set requirepass password
 **Refs:**
 [# Redis连接报错：ERR Client sent AUTH, but no password is set](https://blog.csdn.net/u014026084/article/details/105767907)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MTQ1MTA5XX0=
+eyJoaXN0b3J5IjpbMTAxMzA3MTU0MSwyMDcxNDUxMDldfQ==
 -->
