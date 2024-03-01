@@ -1,6 +1,6 @@
 ---
 layout: fragment
-title: Stream API .flatMap()
+title: Stream API flatMap()
 tags: Java
 description: Stream API .flatMap()
 keywords: Java
@@ -31,5 +31,5 @@ System.out.println(flattenedList);
 
 通过使用 `stream().flatMap`，我们可以将多个嵌套的集合转换为一个平铺的流，以便于后续的处理和操作。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjI1NTQ5MjRdfQ==
+eyJoaXN0b3J5IjpbLTE4NzMxODA4MjBdfQ==
 -->
