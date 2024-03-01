@@ -13,7 +13,14 @@ typora-root-url: ..
 方法一：
 进入`redis-cli.exe`，查看是否设置密码：
 ```
-auth m
+auth password
+```
+如果报错，则说明并没有设置密码，那我们就可以配置密码：
+```
+config set requirepass password
+```
+使用这个方法配置的密码，当Re'di
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4NjE0OTc4NV19
+eyJoaXN0b3J5IjpbLTk1NDQ3Nzg3MV19
 -->
